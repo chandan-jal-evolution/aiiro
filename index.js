@@ -1,14 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const { PostHog } = require("posthog-node");
+require("dotenv").config();
 
 const app = express();
 
 // constants
-const PORT = 4000;
-const PROJECT_KEY = "phc_NrLMvJ0FwsJpNF4D7RCxiF0CRlGCfi60XN8TqoSqFTQ";
-const PROJECT_HOST = "https://us.i.posthog.com";
-const PERSONAL_TOKEN = "phx_cPL2MOcGmhJVzr4G8wjIvEqfO3Co2zhHb5M48xWdZYI";
+const PORT = process.env.PORT || 4000;
+const PROJECT_KEY = process.env.PROJECT_KEY;
+const PROJECT_HOST = process.env.PROJECT_HOST;
+const PERSONAL_TOKEN = process.env.PERSONAL_TOKEN;
 
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
